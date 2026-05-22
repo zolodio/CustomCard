@@ -320,20 +320,19 @@ body{
 
 /* Energy pips */
 #cEnergy{
-  position:absolute;top:322px;left:160px;
+  position:absolute;top:127px;left:12px;
   display:flex;gap:5px;align-items:center;
 }
 .epip{
-  width:34px;height:34px;border-radius:50%;
+  width:34px;height:34px;border-radius:0%;
   display:flex;align-items:center;justify-content:center;
   font-family:'Cinzel',serif;font-size:13px;font-weight:900;
-  color:#fff;border:2px solid rgba(255,255,255,.3);
+  color:#fff;border:none;
   text-shadow:0 1px 3px rgba(0,0,0,.8);
-  box-shadow:0 1px 5px rgba(0,0,0,.5);
 }
-.epip.g{background:#1b5e20;border-color:#4caf50;box-shadow:0 0 7px rgba(76,175,80,.45);}
-.epip.y{background:#e65100;border-color:#ffc107;box-shadow:0 0 7px rgba(255,193,7,.45);}
-.epip.r{background:#b71c1c;border-color:#f44336;box-shadow:0 0 7px rgba(244,67,54,.45);}
+.epip.g{background:none;border-color:none;box-shadow:none;}
+.epip.y{background:none;border-color:none;box-shadow:none;}
+.epip.r{background:none;border-color:none;box-shadow:none;}
 
 /* Traits bar */
 #cTraits{
@@ -1163,7 +1162,7 @@ async function downloadCard() {
     if (state.rules) {
       ctx.save();
       ctx.font = '400 20px "Nunito Sans",sans-serif';
-      ctx.fillStyle = '#d2cde0';
+      ctx.fillStyle = 'rgba(0,0,0,.72)';
       ctx.shadowColor='rgba(0,0,0,.6)'; ctx.shadowBlur=3;
       ctx.textAlign='left';
       drawWrappedText(ctx, state.rules, W*.06, H*.743, W*.88, 27);
@@ -1174,7 +1173,7 @@ async function downloadCard() {
     if (state.flavor) {
       ctx.save();
       ctx.font = 'italic 17px "Nunito Sans",sans-serif';
-      ctx.fillStyle = 'rgba(195,190,215,.72)';
+      ctx.fillStyle = 'rgba(0,0,0,.62)';
       ctx.shadowBlur=0; ctx.textAlign='left';
       drawWrappedText(ctx, state.flavor, W*.06, H*.875, W*.88, 22);
       ctx.restore();
