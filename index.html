@@ -169,11 +169,11 @@ body{
 }
 .rpill .dot{width:7px;height:7px;border-radius:50%;}
 .rpill:hover{border-color:var(--border-light);}
-.rpill[data-r=common].on{background:rgba(139,143,168,.12);border-color:#8b8fa8;color:#8b8fa8;}
-.rpill[data-r=uncommon].on{background:rgba(92,184,92,.12);border-color:var(--earth);color:var(--earth);}
-.rpill[data-r=rare].on{background:rgba(46,140,232,.12);border-color:var(--water);color:var(--water);}
-.rpill[data-r=zenemental].on{background:rgba(180,77,223,.12);border-color:var(--zen);color:var(--zen);}
-.rpill[data-r=promo].on{background:rgba(232,182,50,.12);border-color:var(--promo);color:var(--promo);}
+.rpill[data-r=common].on{background:rgba(0,0,0,.12);border-color:#8b8fa8;color:#8b8fa8;}
+.rpill[data-r=uncommon].on{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,1);color:rgba(255,255,255,1);}
+.rpill[data-r=rare].on{background:rgba(255,255,0,.12);border-color:rgba(255,255,0,1);color:rgba(255,255,0,1);}
+.rpill[data-r=zenemental].on{background:rgba(255,255,0,.12);border-color:rgba(255,255,0,1);color:rgba(255,255,0,1);}
+.rpill[data-r=promo].on{background:rgba(255,255,0,.12);border-color:rgba(255,255,0,1);color:rgba(255,255,0,1);}
 
 /* ══════════════════════════════════════════════════
    TEXTURE PILLS
@@ -202,7 +202,7 @@ body{
 /* ══════════════════════════════════════════════════
    PREVIEW COLUMN
 ══════════════════════════════════════════════════ */
-.preview-col{position:sticky;top:20px;}
+.preview-col{position:flex;top:20px;}
 .preview-label{
   font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;
   text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);
@@ -303,24 +303,20 @@ body{
 /* Stats row */
 .cStat{
   position:absolute;
-  width:52px;height:52px;
+  width:50px;height:50px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  border-radius:50%;
-  background:rgba(0,0,0,.78);
-  border:2.5px solid rgba(255,255,255,.35);
+  border-radius:0%;
+  background:none;
+  border:none;
 }
-.cStat .slbl{
-  font-family:'Cinzel',serif;font-size:5.5px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.06em;
-  color:rgba(255,255,255,.55);line-height:1;
-}
+
 .cStat .sval{
   font-family:'Cinzel',serif;font-size:22px;font-weight:900;
   color:#fff;line-height:1;
   text-shadow:0 0 8px rgba(255,255,255,.25);
 }
-#cForce{top:316px;left:24px;}
-#cIntercept{top:316px;left:87px;}
+#cForce{top:316px;left:315px;}
+#cIntercept{top:10px;left:315px;}
 
 /* Energy pips */
 #cEnergy{
@@ -371,14 +367,14 @@ body{
 
 /* Card number */
 #cNumber{
-  position:absolute;bottom:8px;left:18px;
+  position:absolute;bottom:187px;left:75px;
   font-family:'Cinzel',serif;font-size:8.5px;font-weight:600;
-  color:rgba(175,170,195,.8);letter-spacing:.04em;
+  color:rgba(255,255,0,1);letter-spacing:.04em;
 }
 
 /* Rarity */
 #cRarity{
-  position:absolute;bottom:6px;right:16px;
+  position:absolute;bottom:187px;left:50px;
   display:flex;align-items:center;gap:4px;
 }
 #cRarity .rdot{width:7px;height:7px;border-radius:50%;}
@@ -433,11 +429,11 @@ body{
 /* ══════════════════════════════════════════════════
    RARITY DOT COLORS
 ══════════════════════════════════════════════════ */
-.dc{background:#8b8fa8;}
-.duc{background:#5cb85c;}
-.dr{background:#2e8ce8;}
-.dz{background:#b44ddf;}
-.dp{background:#e8b632;}
+.dc{background:#000000;}
+.duc{background:#FFFFFF;}
+.dr{background:#FFFF00;}
+.dz{background:#FFFF00;}
+.dp{background:#FFFF00;}
 </style>
 </head>
 <body>
@@ -496,22 +492,17 @@ body{
           <label class="fl">
             Card Number
             <span style="font-weight:400;font-size:.6rem;color:var(--text-muted);text-transform:none;letter-spacing:0;margin-left:4px;">
-              (not APR001-002 · 1-235 · ABK001-008 · FPR001-003)
+              (not APR001-002 · AME1-235 · ABK001-008 · FPR001-003 · APE001-126 · STRT001 · BSTR001-007 · MTBX001-002 · RLBK001 · PLMT001-002 · SHDW001 · PRNT001-005 · etc)
             </span>
           </label>
           <div class="num-row">
             <select class="fs num-prefix" id="prefixSel">
               <option value="CST">CST</option>
               <option value="FAN">FAN</option>
-              <option value="HERO">HERO</option>
+              <option value="PRXY">PRXY</option>
               <option value="ALT">ALT</option>
               <option value="SPEC">SPEC</option>
-              <option value="STRT">STRT</option>
-              <option value="BSTR">BSTR</option>
-              <option value="RLBK">RLBK</option>
-              <option value="PLMT">PLMT</option>
-              <option value="SHDW">SHDW</option>
-              <option value="_custom_">Custom…</option>
+
             </select>
             <input class="fi" id="numSuffix" type="text" maxlength="5" placeholder="001" style="flex:1;">
           </div>
@@ -643,13 +634,11 @@ body{
 
               <!-- Force stat circle -->
               <div class="cStat" id="cForce">
-                <div class="slbl">Force</div>
                 <div class="sval" id="vForce">—</div>
               </div>
 
               <!-- Intercept stat circle -->
               <div class="cStat" id="cIntercept">
-                <div class="slbl">ICT</div>
                 <div class="sval" id="vIntercept">—</div>
               </div>
 
@@ -734,11 +723,11 @@ var TRAIT_ICONS = {
 };
 
 var RARITY = {
-  common:     { dot: '#8b8fa8', label: 'C',   cls:'dc',  name:'Common' },
-  uncommon:   { dot: '#5cb85c', label: 'UC',  cls:'duc', name:'Uncommon' },
-  rare:       { dot: '#2e8ce8', label: 'R',   cls:'dr',  name:'Rare' },
-  zenemental: { dot: '#b44ddf', label: 'ZEN', cls:'dz',  name:'Zenemental' },
-  promo:      { dot: '#e8b632', label: 'PR',  cls:'dp',  name:'Promo' }
+  common:     { dot: '#8b8fa8',   cls:'dc',  name:'Common' },
+  uncommon:   { dot: '#5cb85c',  cls:'duc', name:'Uncommon' },
+  rare:       { dot: '#FFFF00',   cls:'dr',  name:'Rare' },
+  zenemental: { dot: '#FFFF00', cls:'dz',  name:'Zenemental' },
+  promo:      { dot: '#FFFF00', cls:'dp',  name:'Promo' }
 };
 
 var CARD_W = 375;   // design canvas width
